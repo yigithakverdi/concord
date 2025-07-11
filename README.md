@@ -4,19 +4,16 @@
 
 Concord is a Go-based command-line tool for generating, validating, and managing environment-specific `application.properties` files. It uses a hierarchical source structure to produce consistent configuration artifacts for use in CI/CD pipelines.
 
------
 
 ## Purpose
 
 Managing `application.properties` across multiple environments (e.g., dev, preprod, beta, prod) can lead to configuration drift, inconsistencies, and accidental secret exposure. Concord addresses this by automating the generation and validation of these files from a defined source structure, reducing manual intervention and potential errors.
 
------
 
 ## Architecture & Workflow
 
 Concord merges a base configuration with an environment-specific override file, validates the result against a defined ruleset, and generates a final properties file. This ensures that every configuration is consistent and compliant with your defined policies before deployment.
 
------
 
 ## Features
 
@@ -40,7 +37,6 @@ Concord merges a base configuration with an environment-specific override file, 
   * **Comment Preservation**: Preserve comments from source files in the generated output.
   * **Pre-Commit Hook**: A script to run `concord validate` automatically before a commit.
 
------
 
 ## Usage
 
@@ -67,8 +63,6 @@ Shows a diff of the final generated properties for the `dev` and `preprod` envir
 ```sh
 concord diff dev preprod
 ```
-
------
 
 ## Configuration Example
 
