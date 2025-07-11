@@ -1,0 +1,5 @@
+## Base properties that exists in every other application properties
+## these are usually infrastructure related properties such as logging, tomcat
+## certificate, keystore, etc.
+
+
