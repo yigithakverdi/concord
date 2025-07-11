@@ -14,6 +14,7 @@ Managing `application.properties` across multiple environments (e.g., dev, prepr
 
 Concord merges a base configuration with an environment-specific override file, validates the result against a defined ruleset, and generates a final properties file. This ensures that every configuration is consistent and compliant with your defined policies before deployment.
 
+<img width="6542" height="1776" alt="concord" src="https://github.com/user-attachments/assets/bf448024-0f81-4921-b5d8-f490d9b56caf" />
 
 ## Features
 
