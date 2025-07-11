@@ -28,17 +28,23 @@ Additional & Planned Features
 
 Usage
 Generate a Configuration File
+```
 # Generates a final application-dev.properties file
 concord generate dev --output-file ./build/application-dev.properties
+```
 
 Validate an Environment's Configuration
+```
 # Validates the 'preprod' environment against the rules.
 # Exits with a non-zero status code if validation fails.
 concord validate preprod
+```
 
 See the Difference Between Environments
+```
 # Shows a diff of the final generated properties for dev and preprod.
 concord diff dev preprod
+```
 
 Configuration Example
 Rules are defined in a concord.rules.yml file in your repository's root.
