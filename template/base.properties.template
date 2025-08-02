@@ -1,5 +1,22 @@
-## Base properties that exists in every other application properties
-## these are usually infrastructure related properties such as logging, tomcat
-## certificate, keystore, etc.
+server.port=${server.port}
+server.shutdown=${server.shutdown}
+server.ssl.enabled=${server.ssl.enabled}
+server.ssl.key-store-type=${server.ssl.key-store-type}
+server.ssl.key-store=${server.ssl.key-store}
+server.ssl.key-store-password=${server.ssl.key-store-password}
+server.ssl.key-alias=${server.ssl.key-alias}
 
+logging.level.root=${logging.level.root}
+logging.level.com.mycompany.project=${logging.level.com.mycompany.project}
+logging.pattern.console=${logging.pattern.console}
+logging.gelf.host=${logging.gelf.host}
+logging.gelf.port=${logging.gelf.port}
+logging.gelf.enabled=${logging.gelf.enabled}
+logging.gelf.facility=${logging.gelf.facility}
 
+management.endpoints.web.exposure.include=${management.endpoints.web.exposure.include}
+management.endpoint.health.show-details=${management.endpoint.health.show-details}
+management.endpoint.health.probes.enabled=${management.endpoint.health.probes.enabled}
+
+spring.main.banner-mode=${spring.main.banner-mode}
+spring.application.name=${spring.application.name}
