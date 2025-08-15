@@ -14,12 +14,6 @@ func CreatePropertyAsString(key string, value string) string {
 	return key + "=" + value + "\n"
 }
 
-func SlurpDefaultYAMLFile() ([]byte, error) {
-	data, err := os.ReadFile(globals.DefaultValuesFileLocation)
-	utils.Check(err)
-	return data, err
-}
-
 func CreateNestedPropertiesAsString(parent []string, data reflect.Value) {
 	switch data.Kind() {
 	case reflect.Slice:
@@ -45,9 +39,7 @@ func CreateNestedPropertiesAsString(parent []string, data reflect.Value) {
 			parent = parent[:len(parent)-1]
 		}
 	default:
-		// fmt.Printf("\t %v: %v \n", , data.String())
 		globals.GlobalProperties[strings.TrimSpace(strings.Join(parent, "."))] = data.String()
-
 	}
 }
 
@@ -59,6 +51,5 @@ func RenderApplicationProperties() {
 		_, err = f.WriteString(property)
 		utils.Check(err)
 	}
-
 	defer f.Close()
 }

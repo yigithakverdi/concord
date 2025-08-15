@@ -1,0 +1,32 @@
+pipeline:
+  metadata:
+    name: "default-preflight-checks"
+    description: "Default preflight checks for validating the key/value properties"
+  steps:
+    - name: "lint"
+      uses: linter
+      with:
+        rules_file: "./lint-rules.yaml"
+    - name: "required-fields"
+      uses: validator
+      with:
+        schema_file: "./config-schema.json"
+    - name: "secret-scan"
+      on_failure: warn
+      uses: secrets-scanner
+      with:
+        forbidden_patterns:
+          - "password"
+          - "token"
+          - "secret_key"
+    - name: "database-check"
+      if: "environment == 'preprod'"
+      uses: db-connection-check
+      with:
+        connection_string: "${DB_URL}"
+        timeout_seconds: 5
+    - name: "external-webhook-validator"
+      uses: http://customer-validator.svc.cluster.local/validate
+      on_failure: fail
+      with:
+        - expected_region: "EMEA"

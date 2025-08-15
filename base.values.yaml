@@ -16,6 +16,7 @@ config:
       console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
     gelf:
       host: graylog.openshift.svc.cluster.local
-      port: 12201
-      enabled: true
+      port: "12201"
+      enabled: "true"
       facility: ${spring.application.name}
+      env: "preprod"
